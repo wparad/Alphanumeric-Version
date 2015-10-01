@@ -1,0 +1,23 @@
+language: csharp
+script:
+- bundle exec rake --trace
+before_deploy:
+- bundle exec rake after_build --trace
+deploy:
+  provider: releases
+  file_glob: true
+  file: output/*.nupkg
+  api_key:
+    secure: WmW8P+7vxPmVUnIbhVkfY4TzjN8bC8uguHc10fQedmSWCzJ7Lq0c6kXKoKAWKPUTmDn9+IyAYyCGXs8rjIs7ZPavd8p3vMDTFl9K72bZhCpnKMLhK2/1zWBijfAbVehK2cTGiSLUSROnvNcpX7zRj7QQWhm+iBg8YJt87gBSkg68vZN9YL+N2nUdHN2txrFKeGiH+nSce2v4jyZD+JKC74oO1rkgLx1gsJ2YEc5ZmqAibI9dsWK+Yr1SqQu/xPnanM3QCno0GKdWvL4IJijllxWTIQ8HvvZjoqXOKPkObaI2evzbvp5kT5q8rAZJ1sqX4m7hyXQcEIb1xcJijv5Topq0hr3dsPgIYMTq40DJuF7qsoAn7/GkTQrPWyv4lnXN2Sfy886iMhkUw70JHArNf4Hs3YbvnYBcntqk5yJ+rlnKRJjUKYsCxQ6/Yc4QM0H8wCgdDRS3fRYHa640DrlDm8SzceViyJzGTbhdskKvUgSbvAJU+YN6VnCvjXwyj0SD1cAIFiO18FZMEHegJ2CSaF8TkEA/6WgVtge5OxHgDBQqDmgAynfWrXyKFRNbJ2K0gjgdybtCxGwo7YpX183HWYxSb2s89bMl9wuXnxIAZ+nocDxpr3AZO8fXFET5Pr7c+2zx7VjeX66t0Wqe3pYM4yCO/FdhToHxJK4k2Of4Jds=
+  skip_cleanup: true
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH != master
+branches:
+  only:
+  - master
+  - /^release.*/
+env:
+  global:
+    #GIT_TAG_PUSHER
+    secure: Zzh93IG/mrRVLyAQdII+9FixLvMJBpSwsyz5bLdeo63zSrDD2Z+GfgDwUqLJB+NWZHoCgvKWoNZuD5/GXXhFuBxvz21/pVCX1OAAFrd48W8xXLJOfM+O/K3ZNPaBuB2AchaPRPbcDmvpmW23n8rhWnx/vyhczDQi8NQvL9oNIbjzCen24xd2BS/MHl7laj0RkA/rsYMlOludFgFZGJPUWklg9/27Me6BRN8VPe3tGVGsQ9fU8MuL08ktXM5uFjy83PTcB/VemWztIWHkedCIoLq5MvDcMKFJxU9euxiJBI64ZAqqekhQVnlflixOMitql18EZdR5nvYMFbXhbNSw60LsDPJGczTcvYrmHt3yvGx78nQo2YzYw/hZ7oC/wN240pw5otrUaxGYmqSekdcT1mASr99QrPhcSr72yb90CC1LtH7UiyxdXd0/Igkd8AmR4wNM8VS+WSG+sKpmoA8rI0Hf+S7aIuVqd2GFPvJLRG8bli2nkd4Blz6OR89pmY0I6upiVCkn6Mk0rUpwf1rkKAxhbLf5TGXyumSecFc4cG0an42y2uZ9BsMwIKUzjnDCbRxJY4wH+X13C6h8H/irLjTp7+48Y385fos08Lt1fFO+3zxX1IsmK0dA7reCS2UsieTs9LcugLDU+eesa95k5TyurWWqFh5GO45Vxt6x9qo=

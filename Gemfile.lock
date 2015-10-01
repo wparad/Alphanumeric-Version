@@ -1,0 +1,36 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    domain_name (0.5.24)
+      unf (>= 0.0.5, < 1.0.0)
+    ffi (1.9.10-x86-mingw32)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
+    mime-types (2.6.2)
+    netrc (0.10.3)
+    nuget (2.8.50126.400)
+    rake (10.4.2)
+    rest-client (1.8.0-x86-mingw32)
+      ffi (~> 1.9)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    rubyzip (1.1.7)
+    travis-build-tools (2.0.48.0)
+      bundler (~> 1.10)
+      rest-client (~> 1.8)
+      rubyzip (~> 1.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1-x86-mingw32)
+
+PLATFORMS
+  x86-mingw32
+
+DEPENDENCIES
+  nuget!
+  rake!
+  travis-build-tools (>= 2.0)!
+
+BUNDLED WITH
+   1.10.6
